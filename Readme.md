@@ -33,13 +33,16 @@ drop(el, function(e){
 
 ### File
 
-  Dropping files results in `File` objects with the following properties:
+  Dropping files results in `File` objects with the following properties. When
+  file(s) are uploaded via dropping a directory the `.entry` property is populated
+  which allows you to reference `item.entry.fullPath`.
 
   - `kind` "file"
   - `lastModifiedDate`
   - `name` filename
   - `size` file size
   - `type` mime type
+  - `entry` `FileEntry` object
 
 ### Item
 
