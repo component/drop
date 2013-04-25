@@ -16,6 +16,9 @@
 
 ## Example
 
+  The `e.items` array contains `File` objects for file uploads,
+  and regular objects for string related drops.
+
 ```js
 var drop = require('drop')
 var el = document.querySelector('#drop')
@@ -27,6 +30,24 @@ drop(el, function(e){
   })
 })
 ```
+
+### File
+
+  Dropping files results in `File` objects with the following properties:
+
+  - `kind` "file"
+  - `lastModifiedDate`
+  - `name` filename
+  - `size` file size
+  - `type` mime type
+
+### Item
+
+  Dropping strings or urls results in objects with the following properties:
+
+  - `kind` "string"
+  - `type` mime type
+  - `string` value
 
 # License
 
