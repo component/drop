@@ -1,0 +1,21 @@
+{
+  "name": "drop",
+  "repo": "component/drop",
+  "description": "drag and drop uploads with a single event per drop",
+  "version": "0.2.1",
+  "keywords": [
+    "drag",
+    "drop",
+    "upload",
+    "file"
+  ],
+  "dependencies": {
+    "component/classes": "*",
+    "component/events": "*"
+  },
+  "development": {},
+  "scripts": [
+    "index.js"
+  ],
+  "license": "MIT"
+}
