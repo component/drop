@@ -6,7 +6,7 @@
   "dependencies": {
     "classes-component": "*",
     "events-component-2": "*"
-  }
+  },
   "component": {
     "scripts": {
       "drop/index.js": "index.js"
