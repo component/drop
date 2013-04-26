@@ -5,7 +5,8 @@
   "keywords": ["upload", "file"],
   "dependencies": {
     "classes-component": "*",
-    "events-component-2": "*"
+    "events-component-2": "*",
+    "normalized-upload": "0.0.1"
   },
   "component": {
     "scripts": {

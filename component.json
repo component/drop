@@ -11,7 +11,8 @@
   ],
   "dependencies": {
     "component/classes": "*",
-    "component/events": "*"
+    "component/events": "*",
+    "component/normalized-upload": "0.0.1"
   },
   "development": {},
   "scripts": [
