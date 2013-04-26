@@ -89,6 +89,7 @@ Drop.prototype.ondrop = function(e){
 Drop.prototype.prepare = function(e, fn){
   e.items = [];
   var items = e.dataTransfer.items;
+  if (!items) return fn(e);
   this.items(e, items, function(){ fn(e) });
 };
 
