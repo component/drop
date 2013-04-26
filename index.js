@@ -3,14 +3,14 @@
  * Module dependencies.
  */
 
-var classes = require('classes')
-var events = require('events')
+var classes = require('classes');
+var events = require('events');
 
 /**
  * Expose `Drop`.
  */
 
-module.exports = Drop
+module.exports = Drop;
 
 /**
  * Initialize a drop point
@@ -22,15 +22,15 @@ module.exports = Drop
  */
 
 function Drop(el, fn) {
-  if (!(this instanceof Drop)) return new Drop(el, fn)
-  this.el = el
-  this.callback = fn
-  this.classes = classes(el)
-  this.events = events(el, this)
-  this.events.bind('drop')
-  this.events.bind('dragenter')
-  this.events.bind('dragleave')
-  this.events.bind('dragover')
+  if (!(this instanceof Drop)) return new Drop(el, fn);
+  this.el = el;
+  this.callback = fn;
+  this.classes = classes(el);
+  this.events = events(el, this);
+  this.events.bind('drop');
+  this.events.bind('dragenter');
+  this.events.bind('dragleave');
+  this.events.bind('dragover');
 }
 
 /**
@@ -40,43 +40,43 @@ function Drop(el, fn) {
  */
 
 Drop.prototype.unbind = function(){
-  this.events.unbind()
-}
+  this.events.unbind();
+};
 
 /**
  * Dragenter handler.
  */
 
 Drop.prototype.ondragenter = function(e){
-  this.classes.add('over')
-}
+  this.classes.add('over');
+};
 
 /**
  * Dragover handler.
  */
 
 Drop.prototype.ondragover = function(e){
-  e.preventDefault()
-}
+  e.preventDefault();
+};
 
 /**
  * Dragleave handler.
  */
 
 Drop.prototype.ondragleave = function(e){
-  this.classes.remove('over')
-}
+  this.classes.remove('over');
+};
 
 /**
  * Drop handler.
  */
 
 Drop.prototype.ondrop = function(e){
-  e.stopPropagation()
-  e.preventDefault()
-  this.classes.remove('over')
-  this.prepare(e, this.callback)
-}
+  e.stopPropagation();
+  e.preventDefault();
+  this.classes.remove('over');
+  this.prepare(e, this.callback);
+};
 
 /**
  * Prepare the event for callback.
@@ -87,10 +87,10 @@ Drop.prototype.ondrop = function(e){
  */
 
 Drop.prototype.prepare = function(e, fn){
-  e.items = []
-  var items = e.dataTransfer.items
-  this.items(e, items, function(){ fn(e) })
-}
+  e.items = [];
+  var items = e.dataTransfer.items;
+  this.items(e, items, function(){ fn(e) });
+};
 
 /**
  * Process `items`.
@@ -103,29 +103,29 @@ Drop.prototype.prepare = function(e, fn){
  */
 
 Drop.prototype.items = function(e, items, fn){
-  var pending = items.length
+  var pending = items.length;
 
   for (var i = 0; i < items.length; i++) {
-    var item = items[i]
+    var item = items[i];
 
     // directories
     if ('file' == item.kind && item.webkitGetAsEntry) {
-      var entry = item.webkitGetAsEntry()
+      var entry = item.webkitGetAsEntry();
       if (entry.isDirectory) {
         this.walk(e, entry, function(){
-          --pending || fn(e)
-        })
-        continue
+          --pending || fn(e);
+        });
+        continue;
       }
     }
 
     // files
     if ('file' == item.kind) {
-      var file = item.getAsFile()
-      file.kind = 'file'
-      e.items.push(file)
-      --pending || fn(e)
-      continue
+      var file = item.getAsFile();
+      file.kind = 'file';
+      e.items.push(file);
+      --pending || fn(e);
+      continue;
     }
 
     // others
@@ -137,13 +137,13 @@ Drop.prototype.items = function(e, items, fn){
           kind: kind,
           type: type,
           string: str
-        })
+        });
 
-        --pending || fn(e)
+        --pending || fn(e);
       })
     })()
   }
-}
+};
 
 /**
  * Walk `entry`.
@@ -155,26 +155,26 @@ Drop.prototype.items = function(e, items, fn){
  */
 
 Drop.prototype.walk = function(e, entry, fn){
-  var self = this
+  var self = this;
 
   if (entry.isFile) {
     return entry.file(function(file){
-      file.entry = entry
-      file.kind = 'file'
-      e.items.push(file)
-      fn()
+      file.entry = entry;
+      file.kind = 'file';
+      e.items.push(file);
+      fn();
     })
   }
 
   if (entry.isDirectory) {
     var dir = entry.createReader()
     dir.readEntries(function(entries){
-      entries = filterHidden(entries)
-      var pending = entries.length
+      entries = filterHidden(entries);
+      var pending = entries.length;
 
       for (var i = 0; i < entries.length; i++) {
         self.walk(e, entries[i], function(){
-          --pending || fn()
+          --pending || fn();
         })
       }
     })
@@ -190,12 +190,12 @@ Drop.prototype.walk = function(e, entry, fn){
  */
 
 function filterHidden(entries) {
-  var arr = []
+  var arr = [];
 
   for (var i = 0; i < entries.length; i++) {
-    if ('.' == entries[i].name[0]) continue
-    arr.push(entries[i])
+    if ('.' == entries[i].name[0]) continue;
+    arr.push(entries[i]);
   }
 
-  return arr
+  return arr;
 }
