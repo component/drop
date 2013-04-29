@@ -1,12 +1,12 @@
 {
   "name": "drop-component",
   "description": "drag and drop file uploading with a single drop event",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "keywords": ["upload", "file"],
   "dependencies": {
     "classes-component": "*",
     "events-component-2": "*",
-    "normalized-upload": "0.0.4"
+    "normalized-upload": "0.x"
   },
   "component": {
     "scripts": {
