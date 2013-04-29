@@ -2,7 +2,7 @@
   "name": "drop",
   "repo": "component/drop",
   "description": "drag and drop uploads with a single event per drop",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "keywords": [
     "drag",
     "drop",
