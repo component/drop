@@ -2,7 +2,10 @@
   "name": "drop-component",
   "description": "drag and drop file uploading with a single drop event",
   "version": "0.1.4",
-  "keywords": ["upload", "file"],
+  "keywords": [
+    "upload",
+    "file"
+  ],
   "dependencies": {
     "classes-component": "*",
     "events-component-2": "*",
@@ -12,5 +15,9 @@
     "scripts": {
       "drop/index.js": "index.js"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/component/drop.git"
   }
 }
