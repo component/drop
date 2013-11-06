@@ -16,6 +16,10 @@
       "drop/index.js": "index.js"
     }
   },
+  "browser": {
+    "classes": "classes-component",
+    "events": "events-component-2"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/component/drop.git"
