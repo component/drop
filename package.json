@@ -16,9 +16,9 @@
       "drop/index.js": "index.js"
     }
   },
-  "brower": {
+  "browser": {
     "classes": "classes-component",
-    "events-component-2": "events"
+    "events": "events-component-2"
   },
   "repository": {
     "type": "git",
