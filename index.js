@@ -32,6 +32,12 @@ function Drop(el, fn) {
   this.events.bind('dragenter');
   this.events.bind('dragleave');
   this.events.bind('dragover');
+
+  // HTML5 "dragenter" and "dragleave" events kinda suck... since they get fired
+  // even for child nodes within the target droppable element, we need to do some
+  // additional bookkeeping to only add/remove the "over" class on the real target
+  this.first = false;
+  this.second = false;
 }
 
 /**
@@ -49,15 +55,12 @@ Drop.prototype.unbind = function(){
  */
 
 Drop.prototype.ondragenter = function(e){
-  this.classes.add('over');
-};
-
-/**
- * Dragover handler.
- */
-
-Drop.prototype.ondragover = function(e){
-  e.preventDefault();
+  if (this.first) {
+    this.second = true;
+  } else {
+    this.first = true;
+    this.classes.add('over');
+  }
 };
 
 /**
@@ -65,7 +68,14 @@ Drop.prototype.ondragover = function(e){
  */
 
 Drop.prototype.ondragleave = function(e){
-  this.classes.remove('over');
+  if (this.second) {
+    this.second = false;
+  } else if (this.first) {
+    this.first = false;
+  }
+  if (!this.first && !this.second) {
+    this.classes.remove('over');
+  }
 };
 
 /**
