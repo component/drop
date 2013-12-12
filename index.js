@@ -29,7 +29,6 @@ function Drop(el, fn) {
   this.classes = classes(el);
   this.events = events(el, this);
   this.events.bind('drop');
-  this.events.bind('dragenter');
   this.events.bind('dragleave');
   this.events.bind('dragover');
 }
@@ -45,19 +44,12 @@ Drop.prototype.unbind = function(){
 };
 
 /**
- * Dragenter handler.
- */
-
-Drop.prototype.ondragenter = function(e){
-  this.classes.add('over');
-};
-
-/**
  * Dragover handler.
  */
 
 Drop.prototype.ondragover = function(e){
   e.preventDefault();
+  this.classes.add('over');
 };
 
 /**
