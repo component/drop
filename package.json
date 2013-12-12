@@ -9,7 +9,7 @@
   "dependencies": {
     "classes-component": "*",
     "events-component-2": "*",
-    "normalized-upload": "0.x"
+    "normalized-upload": "*"
   },
   "component": {
     "scripts": {
