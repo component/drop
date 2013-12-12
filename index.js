@@ -64,6 +64,14 @@ Drop.prototype.ondragenter = function(e){
 };
 
 /**
+ * Dragover handler.
+ */
+
+Drop.prototype.ondragover = function(e){
+  e.preventDefault();
+};
+
+/**
  * Dragleave handler.
  */
 
@@ -88,4 +96,3 @@ Drop.prototype.ondrop = function(e){
   this.classes.remove('over');
   normalize(e, this.callback);
 };
-
