@@ -14,10 +14,15 @@
       #drop.over {
         border: 3px dotted #ddd;
       }
+      #drop.over div {
+        background: red;
+      }
     </style>
   </head>
   <body>
-    <div id="drop"></div>
+    <div id="drop">
+      <div>I'm a child node!</div>
+    </div>
     <script src="build/build.js"></script>
     <script>
       var drop = require('drop');
