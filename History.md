@@ -1,4 +1,12 @@
 
+0.1.5 / 2013-12-12
+==================
+
+  * example: add a child node for testing
+  * update deps
+  * do manual bookkeeping to only add/remove "over" class on outer element
+  * add repository field to package.json
+
 0.1.4 / 2013-04-29
 ==================
 
