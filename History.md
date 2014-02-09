@@ -1,4 +1,9 @@
 
+0.1.6 / 2014-02-08
+==================
+
+  * package: use "component-classes" instead of "classes-compontent"
+
 0.1.5 / 2013-12-12
 ==================
 

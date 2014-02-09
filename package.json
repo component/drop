@@ -1,7 +1,7 @@
 {
   "name": "drop-component",
   "description": "drag and drop file uploading with a single drop event",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "keywords": [
     "upload",
     "file"
