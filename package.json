@@ -7,7 +7,7 @@
     "file"
   ],
   "dependencies": {
-    "classes-component": "*",
+    "component-classes": "*",
     "events-component-2": "*",
     "normalized-upload": "*"
   },
@@ -17,7 +17,7 @@
     }
   },
   "browser": {
-    "classes": "classes-component",
+    "classes": "component-classes",
     "events": "events-component-2"
   },
   "repository": {
