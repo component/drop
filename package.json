@@ -10,9 +10,10 @@
   ],
   "dependencies": {
     "component-classes": "*",
-    "events-component-2": "*",
-    "normalized-upload": "*"
+    "component-events": "*",
+    "component-normalized-upload": "*"
   },
+  "main": "index.js",
   "component": {
     "scripts": {
       "drop/index.js": "index.js"
@@ -20,7 +21,8 @@
   },
   "browser": {
     "classes": "component-classes",
-    "events": "events-component-2"
+    "events": "component-events",
+    "normalized-upload": "component-normalized-upload"
   },
   "repository": {
     "type": "git",
