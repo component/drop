@@ -1,4 +1,11 @@
 
+0.1.7 / 2014-02-10
+==================
+
+  * package: rename to "component-drop"
+  * package: fix "dependencies" fields
+  * package: add more "keywords"
+
 0.1.6 / 2014-02-08
 ==================
 
